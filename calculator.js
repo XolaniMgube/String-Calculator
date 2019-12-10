@@ -3,17 +3,30 @@ function add(string){
 
     //var newDeli = /(?<=\/\/).*?(?=\n)/;
 
-    //var newDeliValue = string.match(newDeli);
+   //var newDeliValue = string.match(newDeli);
 
-    var delimiters = /,|\n|(?<=\/\/).*?(?=\n)|\//;
+  
 
-    var negativeInt = /-\d+?/g //use g to output every match that is found
+    var four = 4;
+
+    var delimiters = /,|\n|(?<=\/\/).*?(?=\n)|\/|1000*|\W|[a-zA-Z]|/;
+
+    var invalidString;
+
+    var negativeInt = /-\d+?/g //use g to output every match thano typet is found
+    no type
+
+    
 
     if (string.match(negativeInt)){
         return "Negative numbers are not allowed " + string.match(negativeInt);
     }
+
+    
     
     string = string.split(delimiters);
+
+    console.log(string)
     
     for (var i = 0; i < string.length; i++){
 
@@ -27,7 +40,7 @@ function add(string){
 
     return sum;
 }
-console.log(add("-1,-2,3,4"))
+console.log(add("//;\n1000;142;"))
  //console.log(add("-2"))
 
 
