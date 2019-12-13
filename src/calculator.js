@@ -3,10 +3,9 @@ function add(string){
     
     var delimiters = /,|\n|(?<=\/\/).*?(?=\n)|\/|1000*|\W|[a-zA-Z]|/;
 
-    // console.log(/\s(?=\/\/)/.test(string))
-    // console.log(string.match(/\s(?=\/\/)/))
-
     var invalidString = /\s(?=\/\/)|\d(?=\/\/)/;
+
+    
 
     if (invalidString.test(string) == true){
         return "invalid string";
@@ -51,7 +50,7 @@ function add(string){
 //console.log(add("//[abc][777][:(]\n1abc27773:(1"))
 //console.log(add("//;\n1000,1;2"))
 //console.log(add("//;\n1000;1;2;"));
-// console.log(add("1,2,3//;\n1000,1;2"))
+ //console.log(add("1,2,3//;\n1000,1;2"))
 // console.log(add(" //;\n1000,1;2"))
 
 
