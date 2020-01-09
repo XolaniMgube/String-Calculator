@@ -1,4 +1,4 @@
-let calculatorTest = require("../src/string_calculator.js")
+let calculatorTest = require("../src/calculator.js")
 
 let add = calculatorTest.add
 
@@ -38,13 +38,14 @@ describe("Adds numbers in a string", () =>{
     })
 
 
+    
     it("#5 - does not work if there are negative integers", () =>{
-        expect(function(){add("-1,-2,3,4")}).toThrow( Error("negatives not allowed -1,-2"));
+        expect(function(){add("-1,-2,3,4")}).toThrow(Error("negatives not allowed -1,-2"));
     })
 
 
 
-    it("#6 - ignores 1000", () =>{
+    it("#6 - ignores numbers >1000", () =>{
         expect(add("//;\n1000,1;2")).toBe(3);
     })
 
@@ -54,30 +55,34 @@ describe("Adds numbers in a string", () =>{
     })
 
 
-    it("#8.1 - supports any delimiters of any length", () =>{
+    it("#8.1 - before newline default delimiter", () =>{
         expect(add("//[:D][%]\n1:D2%3")).toBe(6);
     })
 
-    it("#8.2 - supports any delimiters of any length", () =>{
+    it("#8.2 - before newline default delimiter", () =>{
         expect(add("//[***][%%%]\n1***2%%%3")).toBe(6);
     })
 
-    it("#8.3 - supports any delimiters of any length", () =>{
+    it("#8.2 - before newline default delimiter", () =>{
+        expect(add("//[(-_-')][%]\n1(-_-')2%3")).toBe(6);
+    })
+
+    it("#8.3 - before newline default delimiter", () =>{
         expect(add("//[abc][777][:(]\n1abc27773:(1")).toBe("thats cool");
     })
 
 
 
-    // it("#9.1 - invalid input", () =>{
-    //     expect(add("//;\n1000;1;2;")).toBe("invalid string");
-    // })
+    it("#9.1 - invalid input", () =>{
+        expect(function(){add("//;\n1000;1;2;")}).toThrow(Error("invalid input"));
+    })
 
     it("#9.2 - invalid input", () =>{
-        expect(add(" //;\n1000,1;2")).toBe("invalid string");
+        expect(function(){add(" //;\n1000,1;2")}).toThrow(Error("invalid input"));
     })
 
     it("#9.3 - invalid input", () =>{
-        expect(add("1,2,3//;\n1000,1;2")).toBe("invalid string");
+        expect(function(){add("1,2,3//;\n1000,1;2")}).toThrow(Error("invalid input"));
     })
  
 });
