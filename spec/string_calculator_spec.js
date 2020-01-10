@@ -1,4 +1,4 @@
-let calculatorTest = require("../src/calculator.js")
+let calculatorTest = require("../src/string_calculator.js")
 
 let add = calculatorTest.add
 
@@ -68,7 +68,7 @@ describe("Adds numbers in a string", () =>{
     })
 
     it("#8.3 - before newline default delimiter", () =>{
-        expect(add("//[abc][777][:(]\n1abc27773:(1")).toBe("thats cool");
+        expect(add("//[abc][777][:(]\n1abc27773:(1")).toBe(7);
     })
 
 
